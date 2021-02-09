@@ -27,6 +27,6 @@ else:
         if fortune == 3:
             print("Better days are ahead.")
         else:
-            print("You have a bright future")
+            print("You have a bright future.")
 
-print("Now, go spread positive vibes.")
+print("Now, go spread positive vibes!")

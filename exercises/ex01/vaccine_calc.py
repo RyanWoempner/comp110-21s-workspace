@@ -1,6 +1,6 @@
 """A vaccination calculator."""
 
-__author__ = "YOUR PID HERE"
+__author__ = "730362169"
 
 # The datetime data type is imported from the datetime library.
 # A datetime object models a specific date and time.
@@ -27,8 +27,13 @@ future: datetime = today + fortnight
 Population: int = int(input("Population: "))
 Doses_administered: int = int(input("Doses administered: "))
 Doses_per_day: int = int(input("Doses per day: "))
-print("Target percent Vaccinated: 80")
+Target_percent_vaccinated: int = int(input("Target percent vaccinated: "))
 
-Reach_vaccination_point: int = int((((Population*2) - (Doses_administered)) / (Doses_per_day)) * 0.8) 
+Reach_vaccination_point = ((((Population * 2 * (Target_percent_vaccinated / 100)) - (Doses_administered)) / (Doses_per_day))) 
 
-print(input("We will reach 80% vaccination in " + input(Reach_vaccination_point)))
+Required_day: timedelta = timedelta(Reach_vaccination_point)
+Required_time: datetime = today + Required_day
+
+days_required = (Required_time.strftime("%B %d, %Y"))
+
+print("We will reach ", Target_percent_vaccinated, '% ', "vaccination in ", round(Reach_vaccination_point), " days, which falls on ", days_required, sep='')
